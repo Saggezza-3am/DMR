@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<contentHaul xmlns:a="http://www.appian.com/ae/types/2009">
+    <versionUuid>_a-0000e3b8-2279-8000-9ba4-011c48011c48_136335</versionUuid>
+    <rule>
+        <name>BAM_IsVehicleDenied</name>
+        <uuid>_a-0000e3b8-2279-8000-9ba4-011c48011c48_136327</uuid>
+        <description>If either the counter input is greater than the Approval Counter or the supervisor chose denied, then this rule returns true.</description>
+        <parentUuid>_a-0000e3b8-2279-8000-9ba4-011c48011c48_135254</parentUuid>
+        <visibility>
+            <advertise>false</advertise>
+            <hierarchy>true</hierarchy>
+            <indexable>true</indexable>
+            <quota>false</quota>
+            <searchable>true</searchable>
+            <system>false</system>
+            <unlogged>false</unlogged>
+        </visibility>
+        <definition>if( 
+  or(
+    ri!counter &gt; #"_a-0000e3b8-2279-8000-9ba4-011c48011c48_136322",
+    ri!decision = #"_a-0000e3b8-2279-8000-9ba4-011c48011c48_135249"[1] ),
+    true, 
+    false )</definition>
+        <namedTypedValue>
+            <name>counter</name>
+            <type>
+                <name>int</name>
+                <namespace>http://www.w3.org/2001/XMLSchema</namespace>
+            </type>
+        </namedTypedValue>
+        <namedTypedValue>
+            <name>decision</name>
+            <type>
+                <name>string</name>
+                <namespace>http://www.w3.org/2001/XMLSchema</namespace>
+            </type>
+            <value/>
+        </namedTypedValue>
+        <preferredEditor>legacy</preferredEditor>
+        <offlineEnabled>false</offlineEnabled>
+    </rule>
+    <roleMap public="true">
+        <role inherit="true" allowForAll="false" name="readers">
+            <users/>
+            <groups/>
+        </role>
+        <role inherit="true" allowForAll="false" name="authors">
+            <users/>
+            <groups/>
+        </role>
+        <role inherit="true" allowForAll="false" name="administrators">
+            <users>
+                <userUuid>Shivanshoo</userUuid>
+            </users>
+            <groups/>
+        </role>
+        <role inherit="false" allowForAll="false" name="denyReaders">
+            <users/>
+            <groups/>
+        </role>
+        <role inherit="false" allowForAll="false" name="denyAuthors">
+            <users/>
+            <groups/>
+        </role>
+        <role inherit="false" allowForAll="false" name="denyAdministrators">
+            <users/>
+            <groups/>
+        </role>
+    </roleMap>
+    <history>
+        <historyInfo versionUuid="_a-0000e3b8-2279-8000-9ba4-011c48011c48_136335"/>
+    </history>
+</contentHaul>

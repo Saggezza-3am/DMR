@@ -1,0 +1,406 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<contentHaul xmlns:a="http://www.appian.com/ae/types/2009">
+    <versionUuid>_a-0000e3b8-2279-8000-9ba4-011c48011c48_139104</versionUuid>
+    <rule>
+        <name>BAM_AddAccountSummary</name>
+        <uuid>_a-0000e3b8-2279-8000-9ba4-011c48011c48_136624</uuid>
+        <description>A reusable section to show read-only or editable account details.</description>
+        <parentUuid>_a-0000e3b8-2279-8000-9ba4-011c48011c48_135239</parentUuid>
+        <visibility>
+            <advertise>false</advertise>
+            <hierarchy>true</hierarchy>
+            <indexable>true</indexable>
+            <quota>false</quota>
+            <searchable>true</searchable>
+            <system>false</system>
+            <unlogged>false</unlogged>
+        </visibility>
+        <definition>#"SYSTEM_SYSRULES_formLayout_v1"(
+  label: "",
+  contents: {
+    #"SYSTEM_SYSRULES_columnsLayout"(
+      columns: {
+        #"SYSTEM_SYSRULES_columnLayout"(
+          contents: {
+            #"SYSTEM_SYSRULES_textField"(
+              label: "First Name",
+              labelPosition: if(
+                ri!readOnly,
+                "ADJACENT",
+                "ABOVE"
+              ),
+              value: ri!BAM_Account.firstName,
+              saveInto: ri!BAM_Account.firstName,
+              required: true,
+              readOnly: ri!readOnly,
+              validations: if(
+                len(
+                  ri!BAM_Account.firstName
+                ) &gt; 255,
+                "Value may not be longer than 255 characters. You have entered " &amp; len(
+                  ri!BAM_Account.firstName
+                ) &amp; " characters.",
+                null
+              )
+            ),
+            #"SYSTEM_SYSRULES_textField"(
+              label: "Email",
+              labelPosition: if(
+                ri!readOnly,
+                "ADJACENT",
+                "ABOVE"
+              ),
+              value: ri!BAM_Account.email,
+              saveInto: ri!BAM_Account.email,
+              readOnly: ri!readOnly,
+              validations: if(
+                len(
+                  ri!BAM_Account.email
+                ) &gt; 255,
+                "Value may not be longer than 255 characters. You have entered " &amp; len(
+                  ri!BAM_Account.email
+                ) &amp; " characters.",
+                null
+              )
+            ),
+            #"SYSTEM_SYSRULES_dropdownField"(
+              label: "Account Type",
+              labelPosition: "ABOVE",
+              placeholderLabel: "Select type of account",
+              choiceLabels: {"Savings", "Current"},
+              choiceValues: {"Savings", "Current"},
+              value: ri!BAM_Account.typeOfAccount,
+              saveInto: ri!BAM_Account.typeOfAccount,
+              validations: {}
+            ),
+            #"SYSTEM_SYSRULES_textField"(
+              label: "Address Line 2",
+              labelPosition: if(
+                ri!readOnly,
+                "ADJACENT",
+                "ABOVE"
+              ),
+              value: ri!BAM_Account.addressLine2,
+              saveInto: ri!BAM_Account.addressLine2,
+              readOnly: ri!readOnly,
+              validations: if(
+                len(
+                  ri!BAM_Account.addressLine2
+                ) &gt; 255,
+                "Value may not be longer than 255 characters. You have entered " &amp; len(
+                  ri!BAM_Account.addressLine2
+                ) &amp; " characters.",
+                null
+              )
+            ),
+            #"SYSTEM_SYSRULES_textField"(
+              label: "State",
+              labelPosition: if(
+                ri!readOnly,
+                "ADJACENT",
+                "ABOVE"
+              ),
+              value: ri!BAM_Account.state,
+              saveInto: ri!BAM_Account.state,
+              required: true,
+              readOnly: ri!readOnly,
+              validations: if(
+                len(
+                  ri!BAM_Account.state
+                ) &gt; 255,
+                "Value may not be longer than 255 characters. You have entered " &amp; len(
+                  ri!BAM_Account.state
+                ) &amp; " characters.",
+                null
+              )
+            ),
+            #"SYSTEM_SYSRULES_integerField"(
+              label: "Pincode",
+              labelPosition: if(
+                ri!readOnly,
+                "ADJACENT",
+                "ABOVE"
+              ),
+              value: ri!BAM_Account.pincode,
+              saveInto: ri!BAM_Account.pincode,
+              required: true,
+              readOnly: ri!readOnly
+            )
+          }
+        ),
+        #"SYSTEM_SYSRULES_columnLayout"(
+          contents: {
+            #"SYSTEM_SYSRULES_textField"(
+              label: "Last Name",
+              labelPosition: if(
+                ri!readOnly,
+                "ADJACENT",
+                "ABOVE"
+              ),
+              value: ri!BAM_Account.lastName,
+              saveInto: ri!BAM_Account.lastName,
+              required: true,
+              readOnly: ri!readOnly,
+              validations: if(
+                len(
+                  ri!BAM_Account.lastName
+                ) &gt; 255,
+                "Value may not be longer than 255 characters. You have entered " &amp; len(
+                  ri!BAM_Account.lastName
+                ) &amp; " characters.",
+                null
+              )
+            ),
+            #"SYSTEM_SYSRULES_integerField"(
+              label: "Mobile Number",
+              labelPosition: if(
+                ri!readOnly,
+                "ADJACENT",
+                "ABOVE"
+              ),
+              value: ri!BAM_Account.mobileNumber,
+              saveInto: ri!BAM_Account.mobileNumber,
+              required: true,
+              readOnly: ri!readOnly
+            ),
+            #"SYSTEM_SYSRULES_textField"(
+              label: "Address Line 1",
+              labelPosition: if(
+                ri!readOnly,
+                "ADJACENT",
+                "ABOVE"
+              ),
+              value: ri!BAM_Account.addressLine1,
+              saveInto: ri!BAM_Account.addressLine1,
+              required: true,
+              readOnly: ri!readOnly,
+              validations: if(
+                len(
+                  ri!BAM_Account.addressLine1
+                ) &gt; 255,
+                "Value may not be longer than 255 characters. You have entered " &amp; len(
+                  ri!BAM_Account.addressLine1
+                ) &amp; " characters.",
+                null
+              )
+            ),
+            #"SYSTEM_SYSRULES_textField"(
+              label: "City",
+              labelPosition: if(
+                ri!readOnly,
+                "ADJACENT",
+                "ABOVE"
+              ),
+              value: ri!BAM_Account.city,
+              saveInto: ri!BAM_Account.city,
+              required: true,
+              readOnly: ri!readOnly,
+              validations: if(
+                len(
+                  ri!BAM_Account.city
+                ) &gt; 255,
+                "Value may not be longer than 255 characters. You have entered " &amp; len(
+                  ri!BAM_Account.city
+                ) &amp; " characters.",
+                null
+              )
+            ),
+            #"SYSTEM_SYSRULES_textField"(
+              label: "Country",
+              labelPosition: if(
+                ri!readOnly,
+                "ADJACENT",
+                "ABOVE"
+              ),
+              value: ri!BAM_Account.country,
+              saveInto: ri!BAM_Account.country,
+              required: true,
+              readOnly: ri!readOnly,
+              validations: if(
+                len(
+                  ri!BAM_Account.country
+                ) &gt; 255,
+                "Value may not be longer than 255 characters. You have entered " &amp; len(
+                  ri!BAM_Account.country
+                ) &amp; " characters.",
+                null
+              )
+            )
+          }
+        )
+      }
+    ),
+    #"SYSTEM_SYSRULES_boxLayout"(
+      label: "Documents",
+      contents: {
+        #"SYSTEM_SYSRULES_fileUploadField_v1"(
+          label: "Address Proof",
+          labelPosition: "ABOVE",
+          value: ri!BAM_Account.addressProof,
+          saveInto: ri!BAM_Account.addressProof,
+          required: false,
+          validations: {}
+        ),
+        #"SYSTEM_SYSRULES_fileUploadField_v1"(
+          label: "Identity Proof",
+          labelPosition: "ABOVE",
+          value: ri!BAM_Account.identityProof,
+          saveInto: ri!BAM_Account.identityProof,
+          required: false,
+          validations: {}
+        )
+      },
+      style: "STANDARD",
+      marginBelow: "STANDARD"
+    ),
+    #"SYSTEM_SYSRULES_sectionLayout_v1"(
+      label: "Approve",
+      contents: {
+        #"SYSTEM_SYSRULES_radioButtonField"(
+          label: "Approval Decision",
+          labelPosition: "ABOVE",
+          choiceLabels: {"Approve", "Deny"},
+          choiceValues: {true(),false()},
+          value: ri!approvalDecision,
+          saveInto: ri!approvalDecision,
+          choiceLayout: "STACKED",
+          validations: {}
+        ),
+        #"SYSTEM_SYSRULES_paragraphField"(
+          label: "Comments",
+          labelPosition: "ABOVE",
+          value: ri!supervisorComment,
+          saveInto: ri!supervisorComment,
+          refreshAfter: "UNFOCUS",
+          height: "MEDIUM",
+          validations: {}
+        )
+      },
+      showwhen: or( ri!readOnly = true(), not(isnull(ri!supervisorComment))
+      )
+    )
+  },
+  buttons: #"SYSTEM_SYSRULES_ButtonLayout"(
+    primaryButtons: {
+      #"SYSTEM_SYSRULES_ButtonWidget"(
+        label: "Submit",
+        submit: true,
+        style: "PRIMARY"
+      )
+    }
+    /*secondaryButtons: {
+      a!buttonWidget(
+        label: "Cancel",
+        value: true,
+        saveInto: ri!cancel,
+        submit: true,
+        style: "NORMAL",
+        validate: false
+      )
+    }*/
+   /* showWhen: or(
+      isnull(
+        ri!readOnly
+      ),
+      not(
+        ri!readOnly
+      )
+    )*/
+  )
+)</definition>
+        <namedTypedValue>
+            <name>BAM_Account</name>
+            <type>
+                <name>BAM_Account</name>
+                <namespace>urn:com:appian:types:BAM</namespace>
+            </type>
+        </namedTypedValue>
+        <namedTypedValue>
+            <name>readOnly</name>
+            <type>
+                <name>boolean</name>
+                <namespace>http://www.w3.org/2001/XMLSchema</namespace>
+            </type>
+        </namedTypedValue>
+        <namedTypedValue>
+            <name>supervisorComment</name>
+            <type>
+                <name>string</name>
+                <namespace>http://www.w3.org/2001/XMLSchema</namespace>
+            </type>
+            <value/>
+        </namedTypedValue>
+        <namedTypedValue>
+            <name>approvalDecision</name>
+            <type>
+                <name>boolean</name>
+                <namespace>http://www.w3.org/2001/XMLSchema</namespace>
+            </type>
+        </namedTypedValue>
+        <preferredEditor>interface</preferredEditor>
+        <offlineEnabled>false</offlineEnabled>
+    </rule>
+    <roleMap public="true">
+        <role inherit="true" allowForAll="false" name="readers">
+            <users/>
+            <groups/>
+        </role>
+        <role inherit="true" allowForAll="false" name="authors">
+            <users/>
+            <groups/>
+        </role>
+        <role inherit="true" allowForAll="false" name="administrators">
+            <users>
+                <userUuid>Shivanshoo</userUuid>
+            </users>
+            <groups/>
+        </role>
+        <role inherit="false" allowForAll="false" name="denyReaders">
+            <users/>
+            <groups/>
+        </role>
+        <role inherit="false" allowForAll="false" name="denyAuthors">
+            <users/>
+            <groups/>
+        </role>
+        <role inherit="false" allowForAll="false" name="denyAdministrators">
+            <users/>
+            <groups/>
+        </role>
+    </roleMap>
+    <typedValue>
+        <type>
+            <name>RuleTestConfig?list</name>
+            <namespace>http://www.appian.com/ae/types/2009</namespace>
+        </type>
+        <value>
+            <el>
+                <a:name/>
+                <a:ruleInputTestConfigs>
+                    <a:value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="a:Expression">'type!{urn:com:appian:types:BAM}BAM_Account'()</a:value>
+                    <a:nameRef>BAM_Account</a:nameRef>
+                    <a:id>1</a:id>
+                </a:ruleInputTestConfigs>
+                <a:ruleInputTestConfigs>
+                    <a:value xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="true" xsi:type="xsd:boolean"/>
+                    <a:nameRef>readOnly</a:nameRef>
+                    <a:id>2</a:id>
+                </a:ruleInputTestConfigs>
+                <a:ruleInputTestConfigs>
+                    <a:value xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="xsd:string"/>
+                    <a:nameRef>supervisorComment</a:nameRef>
+                    <a:id>3</a:id>
+                </a:ruleInputTestConfigs>
+                <a:ruleInputTestConfigs>
+                    <a:value xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="true" xsi:type="xsd:boolean"/>
+                    <a:nameRef>approvalDecision</a:nameRef>
+                    <a:id>4</a:id>
+                </a:ruleInputTestConfigs>
+                <a:assertions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="true"/>
+            </el>
+        </value>
+    </typedValue>
+    <history>
+        <historyInfo versionUuid="_a-0000e3b8-2279-8000-9ba4-011c48011c48_139104"/>
+    </history>
+</contentHaul>

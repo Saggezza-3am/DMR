@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<contentHaul xmlns:a="http://www.appian.com/ae/types/2009">
+    <versionUuid>_a-0000e3b8-2279-8000-9ba4-011c48011c48_138958</versionUuid>
+    <rule>
+        <name>BAM_AccountGrid</name>
+        <uuid>_a-0000e3b8-2279-8000-9ba4-011c48011c48_138818</uuid>
+        <description>Report</description>
+        <parentUuid>_a-0000e3b8-2279-8000-9ba4-011c48011c48_135239</parentUuid>
+        <visibility>
+            <advertise>false</advertise>
+            <hierarchy>true</hierarchy>
+            <indexable>true</indexable>
+            <quota>false</quota>
+            <searchable>true</searchable>
+            <system>false</system>
+            <unlogged>false</unlogged>
+        </visibility>
+        <definition>{
+  #"SYSTEM_SYSRULES_gridField_v1"(
+    data: #"SYSTEM_SYSRULES_queryEntity_v1"(
+      entity: #"_a-0000e3b8-2279-8000-9ba4-011c48011c48_138809",
+      query: #"SYSTEM_SYSRULES_query"(
+        selection: #"SYSTEM_SYSRULES_querySelection"(
+          columns: {
+            #"SYSTEM_SYSRULES_queryColumn"(
+              field: "firstName"
+            ),
+            #"SYSTEM_SYSRULES_queryColumn"(
+              field: "lastName"
+            ),
+            #"SYSTEM_SYSRULES_queryColumn"(
+              field: "email"
+            ),
+            #"SYSTEM_SYSRULES_queryColumn"(
+              field: "mobileNumber"
+            ),
+            #"SYSTEM_SYSRULES_queryColumn"(
+              field: "typeOfAccount"
+            ),
+            #"SYSTEM_SYSRULES_queryColumn"(
+              field: "country"
+            )
+          }
+        ),
+        pagingInfo: fv!pagingInfo
+      ),
+      fetchTotalCount: true
+    ),
+    columns: {
+      #"SYSTEM_SYSRULES_gridColumn"(
+        label: "First Name",
+        sortField: "firstName",
+        value: fv!row.firstName
+      ),
+      #"SYSTEM_SYSRULES_gridColumn"(
+        label: "Last Name",
+        sortField: "lastName",
+        value: fv!row.lastName
+      ),
+      #"SYSTEM_SYSRULES_gridColumn"(
+        label: "Email",
+        sortField: "email",
+        value: fv!row.email
+      ),
+      #"SYSTEM_SYSRULES_gridColumn"(
+        label: "Mobile Number",
+        sortField: "mobileNumber",
+        value: fv!row.mobileNumber
+      ),
+      #"SYSTEM_SYSRULES_gridColumn"(
+        label: "Type Of Account",
+        sortField: "typeOfAccount",
+        value: fv!row.typeOfAccount
+      ),
+      #"SYSTEM_SYSRULES_gridColumn"(
+        label: "Country",
+        sortField: "country",
+        value: fv!row.country
+      )
+    },
+    pageSize: 20,
+    initialSorts: {}
+  )
+}</definition>
+        <preferredEditor>interface</preferredEditor>
+        <offlineEnabled>false</offlineEnabled>
+    </rule>
+    <roleMap public="true">
+        <role inherit="true" allowForAll="false" name="readers">
+            <users/>
+            <groups/>
+        </role>
+        <role inherit="true" allowForAll="false" name="authors">
+            <users/>
+            <groups/>
+        </role>
+        <role inherit="true" allowForAll="false" name="administrators">
+            <users>
+                <userUuid>Shivanshoo</userUuid>
+            </users>
+            <groups/>
+        </role>
+        <role inherit="false" allowForAll="false" name="denyReaders">
+            <users/>
+            <groups/>
+        </role>
+        <role inherit="false" allowForAll="false" name="denyAuthors">
+            <users/>
+            <groups/>
+        </role>
+        <role inherit="false" allowForAll="false" name="denyAdministrators">
+            <users/>
+            <groups/>
+        </role>
+    </roleMap>
+    <history>
+        <historyInfo versionUuid="_a-0000e3b8-2279-8000-9ba4-011c48011c48_138958"/>
+    </history>
+</contentHaul>

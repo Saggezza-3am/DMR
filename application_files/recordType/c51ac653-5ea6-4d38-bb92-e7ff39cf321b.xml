@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<recordTypeHaul xmlns:a="http://www.appian.com/ae/types/2009" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <versionUuid>3db0c80e-1f64-4c48-b184-9bcf03d67ac7</versionUuid>
+  <recordType a:uuid="c51ac653-5ea6-4d38-bb92-e7ff39cf321b" name="BAM Account">
+    <a:pluralName>BAM Accounts</a:pluralName>
+    <a:description>The list of accounts managed by application</a:description>
+    <a:urlStub>kZVheg</a:urlStub>
+    <a:source
+      a:uuid="7d3a0dd4-d118-4c4d-a7e5-ac8120b5c613@_a-0000e3b8-2279-8000-9ba4-011c48011c48_135213" xsi:type="a:DataStoreEntity"/>
+    <a:listViewTemplateExpr>#"SYSTEM_SYSRULES_recordGridLayoutColumns"(
+  columns: {
+    #"SYSTEM_SYSRULES_gridLayoutColumn"(
+      label: "First Name",
+      field: "firstName",
+      component: #"SYSTEM_SYSRULES_recordGrid_linkField"(
+        links: #"SYSTEM_SYSRULES_recordLink"(
+          label: rf!firstName,
+          recordType: rp!type,
+          identifier: rp!id
+        )
+      )
+    ),
+    #"SYSTEM_SYSRULES_gridLayoutColumn"(
+      label: "Last Name",
+      field: "lastName",
+      component: #"SYSTEM_SYSRULES_recordGrid_textField"(
+        displayValue: rf!lastName,
+        align: null
+      )
+    ),
+    #"SYSTEM_SYSRULES_gridLayoutColumn"(
+      label: "Email",
+      field: "email",
+      component: #"SYSTEM_SYSRULES_recordGrid_textField"(
+        displayValue: rf!email,
+        align: null
+      )
+    ),
+    #"SYSTEM_SYSRULES_gridLayoutColumn"(
+      label: "Mobile Number",
+      field: "mobileNumber",
+      component: #"SYSTEM_SYSRULES_recordGrid_integerField"(
+        displayValue: rf!mobileNumber,
+        align: "RIGHT"
+      )
+    ),
+    #"SYSTEM_SYSRULES_gridLayoutColumn"(
+      label: "Pincode",
+      field: "pincode",
+      component: #"SYSTEM_SYSRULES_recordGrid_integerField"(
+        displayValue: rf!pincode,
+        align: "RIGHT"
+      )
+    )
+  },
+  pageSize: 50,
+  defaultSort: #"SYSTEM_SYSRULES_sortInfo"(
+    field: "firstName",
+    ascending: fn!true()
+  ),
+  shadeAlternateRows: true
+)</a:listViewTemplateExpr>
+    <a:fieldCfg name="Accounts">
+      <a:description/>
+      <a:sourceRef>firstName</a:sourceRef>
+      <a:isSortable>false</a:isSortable>
+      <a:isSearchable>false</a:isSearchable>
+      <a:isFacet>true</a:isFacet>
+      <a:facetType>CUSTOM_BUCKETS_CLOSED</a:facetType>
+      <a:isExclusiveFacet>true</a:isExclusiveFacet>
+      <a:facetLabelExpr>"Available"</a:facetLabelExpr>
+      <a:facetOption>
+        <a:labelExpr>"Available"</a:labelExpr>
+        <a:facetOperator>IN</a:facetOperator>
+        <a:lowerLimitExpr/>
+        <a:upperLimitExpr/>
+        <a:values>true()</a:values>
+      </a:facetOption>
+      <a:facetOption>
+        <a:labelExpr>"Unavailable"</a:labelExpr>
+        <a:facetOperator>IN</a:facetOperator>
+        <a:lowerLimitExpr/>
+        <a:upperLimitExpr/>
+        <a:values>false()</a:values>
+      </a:facetOption>
+      <a:sortOrderIndex>0</a:sortOrderIndex>
+      <a:facetOrderIndex>0</a:facetOrderIndex>
+      <a:visibilityExpr/>
+      <a:defaultOptionExpr/>
+      <a:allowMultipleSelections>true</a:allowMultipleSelections>
+    </a:fieldCfg>
+    <a:fieldCfg name="Accounts">
+      <a:description/>
+      <a:sourceRef>email</a:sourceRef>
+      <a:isSortable>false</a:isSortable>
+      <a:isSearchable>false</a:isSearchable>
+      <a:isFacet>true</a:isFacet>
+      <a:facetType>CUSTOM_BUCKETS_CLOSED</a:facetType>
+      <a:isExclusiveFacet>true</a:isExclusiveFacet>
+      <a:facetLabelExpr>"Email"</a:facetLabelExpr>
+      <a:facetOption>
+        <a:labelExpr>"Available"</a:labelExpr>
+        <a:facetOperator>IN</a:facetOperator>
+        <a:lowerLimitExpr/>
+        <a:upperLimitExpr/>
+        <a:values>true()</a:values>
+      </a:facetOption>
+      <a:facetOption>
+        <a:labelExpr>"Unavailable"</a:labelExpr>
+        <a:facetOperator>IN</a:facetOperator>
+        <a:lowerLimitExpr/>
+        <a:upperLimitExpr/>
+        <a:values>false()</a:values>
+      </a:facetOption>
+      <a:sortOrderIndex>1</a:sortOrderIndex>
+      <a:facetOrderIndex>1</a:facetOrderIndex>
+      <a:visibilityExpr/>
+      <a:defaultOptionExpr/>
+      <a:allowMultipleSelections>true</a:allowMultipleSelections>
+    </a:fieldCfg>
+    <a:detailViewCfg>
+      <a:nameExpr>="Summary"</a:nameExpr>
+      <a:uiExpr>#"_a-0000e3b8-2279-8000-9ba4-011c48011c48_136624"(
+  BAM_Account: 'type!{urn:com:appian:types:BAM}BAM_Account'(
+  id: rf!id,
+  firstName: rf!firstName,
+  lastName:rf!lastName,
+  email:rf!email,
+  mobileNumber: rf!mobileNumber,
+  identityProof: rf!identityProof,
+  addressProof: rf!addressProof,
+  typeOfAccount:rf!typeOfAccount,
+  addressLine1: rf!addressLine1,
+  addressLine2: rf!addressLine2,
+  city:rf!city,
+  state:rf!state,
+  country: rf!country,
+  pincode: rf!pincode),
+  readOnly: true()
+)</a:uiExpr>
+      <a:visibilityExpr>=true()</a:visibilityExpr>
+      <a:urlStub>summary</a:urlStub>
+      <a:headerExpr/>
+      <a:relatedActionCfg>6d4ef510-385d-42ad-bed8-f2e523880d44</a:relatedActionCfg>
+      <a:recordActionLaunchType>SAME_TAB</a:recordActionLaunchType>
+    </a:detailViewCfg>
+    <a:relatedActionCfg>
+      <a:target a:uuid="0002e450-04be-8000-fcb2-7f0000014e7a" xsi:type="a:ProcessModel"/>
+      <a:contextExpr>{
+  BAM_Account: 'type!{urn:com:appian:types:BAM}BAM_Account'(
+    id:rf!id,
+    firstName: rf!firstName,
+    lastName: rf!lastName,
+    email: rf!email,
+    addressLine1: rf!addressLine1,
+    addressLine2: rf!addressLine2,
+    city: rf!city,
+    country: rf!country,
+    state: rf!state,
+    pincode: rf!pincode,
+    mobileNumber:  rf!mobileNumber,
+    typeOfAccount: rf!typeOfAccount,
+    identityProof: rf!identityProof,
+    addressProof: rf!addressProof
+  ),
+  cancel: null
+
+}</a:contextExpr>
+      <a:visibilityExpr>=true()</a:visibilityExpr>
+      <a:iconId>f0e7</a:iconId>
+      <a:refId>6d4ef510-385d-42ad-bed8-f2e523880d44</a:refId>
+      <a:staticTitleString>Update Account</a:staticTitleString>
+      <a:staticDescriptionString>Update the current account.</a:staticDescriptionString>
+    </a:relatedActionCfg>
+    <a:isSystem>false</a:isSystem>
+    <a:dataSrcExpr/>
+    <a:facetsListExpr/>
+    <a:titleExpr>rf!firstName&amp;" "&amp;rf!lastName</a:titleExpr>
+    <a:defaultFiltersExpr/>
+    <a:layoutType>GRID</a:layoutType>
+    <a:security>16383</a:security>
+    <a:hideLatestNews>false</a:hideLatestNews>
+    <a:isExportable>false</a:isExportable>
+    <a:listViewSrcExpr/>
+    <a:recordViewSrcExpr/>
+    <a:iconId/>
+    <a:listAutoRefreshInterval>0.0</a:listAutoRefreshInterval>
+    <a:enabledFeatures>0</a:enabledFeatures>
+    <a:isVisibleInRecordTypeList>true</a:isVisibleInRecordTypeList>
+    <a:recordActionLaunchType>SAME_TAB</a:recordActionLaunchType>
+  </recordType>
+  <roleMap>
+    <role name="record_type_administrator">
+      <users>
+        <userUuid>Shivanshoo</userUuid>
+      </users>
+      <groups/>
+    </role>
+  </roleMap>
+  <history>
+    <historyInfo versionUuid="3db0c80e-1f64-4c48-b184-9bcf03d67ac7"/>
+  </history>
+  <migrationVersion>1</migrationVersion>
+</recordTypeHaul>
