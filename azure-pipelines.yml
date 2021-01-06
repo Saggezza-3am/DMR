@@ -21,8 +21,8 @@ steps:
 
 - task: CmdLine@2
   inputs:
-    script: 'deploy-application.bat'
-    -application_path:C:\\Users\\shivanshoo.yadav\\Downloads\\Bank Account Management.zip
-    -username:Shivanshoo
-    -password:qwerty@203
-    -url:https://saggezza-demo.appiancloud.com/suite/tempo/news
+    script: 'deploy-application.bat
+      application_path:C:\\Users\\shivanshoo.yadav\\Downloads\\Bank Account Management.zip
+      username:Shivanshoo
+      password:qwerty@203
+      url:https://saggezza-demo.appiancloud.com/suite/tempo/news'
