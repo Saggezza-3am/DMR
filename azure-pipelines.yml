@@ -12,8 +12,6 @@ pool:
   demands:agent.os -equals Darwin
 
 steps:
-- script: echo hello world
-steps:
 - script: echo Hello, world!
   displayName: 'Run a one-line script'
 
