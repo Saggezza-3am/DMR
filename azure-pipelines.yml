@@ -7,6 +7,12 @@
 trigger:
 - main
 
+pool:
+  name:SGZ-IN01163
+  demands:agent.os -equals Darwin
+
+steps:
+- script: echo hello world
 steps:
 - script: echo Hello, world!
   displayName: 'Run a one-line script'
@@ -14,7 +20,7 @@ steps:
 - task: CmdLine@2
   inputs:
     script: 'deploy-application.bat
-      application_path:"C:Users\shivanshoo.yadav\Downloads\DMR.zip"
+      application_path:"C:Users\shivanshoo.yadav\Downloads\_work\DMR.zip"
       username:Shivanshoo
       password:qwerty@203
       url:https://saggezza-demo.appiancloud.com/suite'
