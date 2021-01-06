@@ -14,7 +14,7 @@ steps:
 - task: CmdLine@2
   inputs:
     script: 'deploy-application.bat
-      application_path:C:\\Users\\shivanshoo.yadav\\Downloads\\DMR
+      application_path:"C:\\Users\\shivanshoo.yadav\\Downloads\\DMR.zip"
       username:Shivanshoo
       password:qwerty@203
-      url:https://saggezza-demo.appiancloud.com/suite/tempo/news'
+      url:https://saggezza-demo.appiancloud.com/suite'
