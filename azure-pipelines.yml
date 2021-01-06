@@ -13,7 +13,7 @@ steps:
 
 - task: CmdLine@2
   inputs:
-    script: 'deploy-application.bat
+    script: 'deploy-application.sh
       application_path:C:\\Users\\shivanshoo.yadav\\Downloads\\DMR.zip
       username:Shivanshoo
       password:qwerty@203
