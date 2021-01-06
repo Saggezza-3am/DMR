@@ -2,10 +2,10 @@
 - task: CmdLine@2
   inputs:
     script: 'deploy-application.bat 
-    -application_path "C:\\Users\\shivanshoo.yadav\\Downloads\\Bank Account Management.zip" 
-    -username Shivanshoo 
-    -password qwerty@203 
-    -url https://saggezza-demo.appiancloud.com/suite/tempo/news'
+    -application_path:"C:\\Users\\shivanshoo.yadav\\Downloads\\Bank Account Management.zip" 
+    -username:Shivanshoo 
+    -password:qwerty@203 
+    -url:https://saggezza-demo.appiancloud.com/suite/tempo/news'
 # Start with a minimal pipeline that you can customize to build and deploy your code.
 # Add steps that build, run tests, deploy, and more:
 # https://aka.ms/yaml
