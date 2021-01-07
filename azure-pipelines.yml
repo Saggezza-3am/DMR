@@ -9,7 +9,7 @@ trigger:
 
 pool:
   name:default
-  demands:agent.os -equals Darwin
+  #demands:agent.os -equals Darwin
 
 steps:
 - script: echo Hello, world!
