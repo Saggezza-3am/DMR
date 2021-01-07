@@ -8,7 +8,7 @@ trigger:
 - main
 
 pool:
-  name:default
+  name:DMR
   #demands:agent.os -equals Darwin
 
 steps:
