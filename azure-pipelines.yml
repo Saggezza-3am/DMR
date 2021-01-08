@@ -8,8 +8,8 @@ trigger:
 - main
 
 pool:
- name:default
-  #demands:agent.os -equals Darwin
+- name:default
+- demands:appian -equals dmr
 
 steps:
 - script: echo Hello, world!
