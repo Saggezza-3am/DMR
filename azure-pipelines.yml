@@ -8,8 +8,8 @@ trigger:
 - main
 
 pool:
-- name:default
-- demands:appian -equals dmr
+  name:Default
+  demands:appian -equals dmr
 
 steps:
 - script: echo Hello, world!
